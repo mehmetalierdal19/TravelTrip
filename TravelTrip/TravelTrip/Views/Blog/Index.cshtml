@@ -1,4 +1,5 @@
-﻿
+﻿@using TravelTrip.Models.Siniflar
+@model List<Blog>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -13,7 +14,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
     <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,46 +24,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!----webfonts---->
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
-    <!----//webfonts---->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!--end slider -->
-    <!--script-->
-    <script type="~/web2/text/javascript" src="js/move-top.js"></script>
-    <script type="~/web2/text/javascript" src="js/easing.js"></script>
-    <!--/script-->
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
-            });
-        });
-    </script>
-    <!---->
-
 </head>
 <body>
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                <div class="single-grid">
-                    <img src="~/web2/images/post1.jpg" alt="" />
-                    <a href="#">Pariste bir gün geçirmek</a>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                    </p>
-                </div>
-                <br />
-                <br />
-                <div class="single-grid">
-                    <img src="https://www.unileverfoodsolutions.com.tr/konsept-uygulamalarimiz/baharat-ve-cesniler/yemeklere-tat-katan-baharat-ve-otlar-hangi-yemekte-hangi-baharat-kullanilir/jcr:content/parsys/content/image_661525214.img.png/1614337367031.png" alt="" />
-                    <a href="#">Baharatlar Cenneti Lyon</a>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                    </p>
-                </div>
+                @foreach (var x in Model)
+                {
+                    <div class="single-grid">
+                        <img src="@x.ImageURL" alt="" />
+                        <a href="/Blog/BlogDetay/@x.ID">@x.Baslik</a>
+                        <p>@x.Metin</p>
+                    </div>
+                    <br />
+                    <br />
+                }
             </div>
-
             <div class="col-md-4 side-content">
                 <div class="recent">
                     <h3>Son Bloglar</h3>
