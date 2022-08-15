@@ -30,11 +30,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="col-md-8 single-main">
                 @foreach (var x in Model.Deger1)
                 {
-                    <div class="single-grid">
-                        <img src="@x.ImageURL" alt="" />
-                        <a href="/Blog/BlogDetay/@x.ID">@x.Baslik</a>
-                        <p>@x.Metin</p>
-                    </div>
+                <div class="single-grid">
+                    <h4><a href="/Blog/BlogDetay/@x.ID">@x.Baslik</a></h4>
+                    <br />
+                    <img src="@x.ImageURL" alt="" />
+                    <p>@x.Metin.Substring(0,450)... <a href="/Blog/BlogDetay/@x.ID">Devamını Oku >></a></p>
+                </div>
                     <br />
                     <br />
                 }

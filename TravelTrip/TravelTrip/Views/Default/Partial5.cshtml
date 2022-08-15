@@ -1,0 +1,18 @@
+﻿@using TravelTrip.Models.Siniflar
+@model List<Blog>
+@{
+    Layout = null;
+}
+
+<div class="box1-left">
+    @foreach (var x in Model)
+    {
+        <div class="bot-img">
+            <a href="/Blog/BlogDetay/@x.ID"><img src="@x.ImageURL" alt="" /></a>
+        </div>
+        <div class="bot-desc1">
+            <p>@x.Metin.Substring(0, 75)...</p>
+        </div>
+        <div class="clear"></div>
+    }
+</div>

@@ -14,7 +14,7 @@ namespace TravelTrip.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            by.Deger1 = c.Blogs.ToList();
+            by.Deger1 = c.Blogs.Take(5).ToList();
             return View(by);
         }
         public ActionResult About()
@@ -30,6 +30,21 @@ namespace TravelTrip.Controllers
         {
             var degerler = c.Blogs.Where(x => x.ID == 1).ToList();
             return PartialView(degerler);
+        }
+        public PartialViewResult Partial3()
+        {
+            var degerler = c.Blogs.ToList();
+            return PartialView(degerler);
+        }
+        public PartialViewResult Partial4()
+        {
+            var deger = c.Blogs.Take(3).ToList();
+            return PartialView(deger); 
+        }
+        public PartialViewResult Partial5()
+        {
+            var deger = c.Blogs.Take(3).OrderByDescending(x => x.ID).ToList();
+            return PartialView(deger);
         }
     }
 }
