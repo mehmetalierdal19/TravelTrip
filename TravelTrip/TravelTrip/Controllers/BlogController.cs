@@ -40,6 +40,7 @@ namespace TravelTrip.Controllers
         {
             c.Yorumlars.Add(y);
             c.SaveChanges();
+            
             return PartialView();
         }
     }
