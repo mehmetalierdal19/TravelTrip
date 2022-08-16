@@ -10,6 +10,7 @@ namespace TravelTrip.Controllers
     public class AdminController : Controller
     {
         Context c = new Context();
+        [Authorize]
         // GET: Admin
         public ActionResult Index()
         {
@@ -51,6 +52,7 @@ namespace TravelTrip.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize]
         public ActionResult YorumListesi()
         {
             var yorumlar = c.Yorumlars.ToList();
