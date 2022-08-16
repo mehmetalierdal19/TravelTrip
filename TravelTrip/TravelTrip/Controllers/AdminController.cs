@@ -24,7 +24,17 @@ namespace TravelTrip.Controllers
         [HttpPost]
         public ActionResult YeniBlog(Blog p)
         {
-            return View();
+            c.Blogs.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult BlogSil(int id)
+        {
+            var b = c.Blogs.Find(id);
+            c.Blogs.Remove(b);
+            c.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
