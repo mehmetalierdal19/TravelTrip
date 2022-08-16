@@ -1,0 +1,35 @@
+﻿@model TravelTrip.Models.Siniflar.Blog
+@{
+    ViewBag.Title = "BlogGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post))
+{
+    <div class="form-group w-75 mx-auto mt5">
+        <h2 class="mt-3">Blog Güncelle</h2>
+        <div class="mt-4 mb-4">
+            <label class="form-label fw-bold">Blog ID:</label>
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+        <div class="mb-4">
+            <label class="form-label fw-bold">Başlık:</label>
+            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+        </div>
+        <div class="mb-4">
+            <label class="form-label fw-bold">Tarih:</label>
+            @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+        </div>
+        <div class="mb-4">
+            <label class="form-label fw-bold">Resim URL:</label>
+            @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+        </div>
+        <div class="mb-4">
+            <label class="form-label fw-bold">Metin:</label>
+            @Html.TextAreaFor(x => x.Metin, 15, 1, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+
